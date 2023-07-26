@@ -9,7 +9,7 @@
     5. I understand the impact of having more than one setup or loop methods in my sketch
   
   Student Notes: 
-
+dark theme makes 'blue' text white instead. still works.
   Documentation: 
     https://www.arduino.cc/reference/en/language/functions/communication/serial/
     https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-serial-plotter
@@ -18,10 +18,12 @@
 // The setup function runs once when you press reset or power the board
 void setup() {
   Serial.begin(9600);
-  Serial.print("hello world");
+  Serial.println("good morning, configured 9600br");
 }
 
 // The loop function runs over and over again forever
 void loop() {
-
+  while(!Serial.available());
+  String myString = Serial.readString();
+  Serial.println(myString);
 }
