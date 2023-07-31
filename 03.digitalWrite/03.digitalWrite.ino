@@ -13,7 +13,8 @@
     9. I can apply this knowledge to the LED & Buzzer in the sensor kit
 
   Student Notes: 
-
+  !x means -x
+    LEDStatus = !LEDStatus makes it the opposite
   Documentation: 
     https://www.arduino.cc/reference/en/language/functions/digital-io/pinmode/
     https://www.arduino.cc/reference/en/language/functions/digital-io/digitalwrite/
@@ -22,11 +23,20 @@
     https://github.com/TempeHS/TempeHS_Ardunio_Boilerplate/blob/main/Ardunio_Bootcamp/03.digitalWrite/LED_Schedmatic.png
 
 */
+static unsigned int onBoardLED =13;
+bool LEDStatus = false;
 
 void setup() {
-
+Serial.begin(9600);
+Serial.println("Serial Monitor Configured to 9600");
+Serial.println("------------------------------");
+pinMode(onBoardLED, OUTPUT);
 }
 
 void loop() {
-
+LEDStatus = !LEDStatus;
+  digitalWrite(onBoardLED, LEDStatus);
+Serial.print("onBoardLED value:");
+Serial.println(digitalRead(onBoardLED));
+  delay(1000);
 }
