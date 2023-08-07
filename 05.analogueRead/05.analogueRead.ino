@@ -15,11 +15,26 @@
   Schematic:
     https://github.com/TempeHS/TempeHS_Ardunio_Boilerplate/blob/main/Ardunio_Bootcamp/05.serialRead/Bootcamp-serialRead.png
 */
-
+static unsigned int myVarResistor = A0;
+static unsigned int myLightSensor = A3;
+static unsigned int mySoundSensor = A2;
 void setup() {
-
+Serial.begin(9600);
+Serial.println("Serial Monitor Configured to 9600");
+Serial.println("------------------------------");
 }
 
 void loop() {
+  unsigned int val = analogRead(myVarResistor);
+  unsigned int lightval = analogRead(myLightSensor);
+  unsigned int soundval = analogRead(mySoundSensor);
 
+  Serial.print("PotentiometerValue:");
+  Serial.println (val);
+  Serial.print(",");
+  Serial.print("LightSensorValue:");
+   Serial.println (lightval);
+  Serial.print(",");
+  Serial.print("SoundSensorValue:");
+    Serial.println (soundval);
 }
