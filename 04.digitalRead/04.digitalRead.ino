@@ -1,5 +1,5 @@
 /*
-  Author: 
+  Author: Aarav Shrestha
   Learning Intention: The students will learn how to wire a pull-up and pull-down switch and configure PINs for digital input and read binary data from those PINs.
   Success Criteria:
     1. I understand how to configure a PIN for input
@@ -23,6 +23,7 @@
 static unsigned int myLED =4;
 static unsigned int myBuzzer =3;
 static unsigned int myButton =2;
+static unsigned int myLineSensor =8;
 
 void setup() {
 Serial.begin(9600);
@@ -31,11 +32,21 @@ Serial.println("------------------------------");
 pinMode(myBuzzer, OUTPUT);
 pinMode(myLED, OUTPUT);
 pinMode(myButton, INPUT);
+pinMode(myLineSensor, INPUT);
 }
 
 void loop(){
  int val = digitalRead(myButton);
- Serial.println(String(val));
+  int senval = digitalRead(myLineSensor);
+    Serial.print("myButtonValue:");
+  Serial.print(String(val));
+    Serial.print(",");
+  Serial.print("myLineSensorValue:");
+  Serial.println(String(senval));
+
+ if (val) {
+   //myAlert
+ }
 }
 
 void myAlert (){
