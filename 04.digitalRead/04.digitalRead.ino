@@ -29,7 +29,7 @@ void setup() {
 Serial.begin(9600);
 Serial.println("Serial Monitor Configured to 9600");
 Serial.println("------------------------------");
-pinMode(myBuzzer, OUTPUT);
+pinMode(myBuzzer, OUTPUT);  
 pinMode(myLED, OUTPUT);
 pinMode(myButton, INPUT);
 pinMode(myLineSensor, INPUT);
