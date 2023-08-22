@@ -30,11 +30,19 @@
   Schematic: 
     
 */
+unsigned static int myLED = 13;
+
 
 void setup() {
-
+Serial.begin(9600);
+Serial.println("configured 9600");
+Serial.println("-------------------------");
+pinMode(myLED, OUTPUT);
 }
 
 void loop() {
+   while (i <= 5;) {
+     i++;
+    }
 
 }

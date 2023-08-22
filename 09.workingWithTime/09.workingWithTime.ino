@@ -14,11 +14,34 @@
     https://github.com/TempeHS/TempeHS_Ardunio_Boilerplate/blob/main/Ardunio_Bootcamp/09.workingWithTime/Bootcamp-workingWithTime.png
 */
 
+//LED and bool to turn on/off
+static unsigned int myLED =13;
+bool myLEDStatus = false;
+
+
+//both longs to compare mathmatically
+unsigned long myLEDPrevMillis = 0;
+const unsigned long myLEDInterval = 2000;
+
 
 void setup() {
+Serial.begin(9600);
+Serial.println("configured@9600");
+Serial.println("-----------------");
 
+//config. LED
+pinMode(myLED,OUTPUT);
 }
 
 void loop() {
- 
+  unsigned long currentMillis = millis();
+ digitalWrite(myLED,myLEDStatus);
+  Serial.print(currentMillis);
+  Serial.print(",");
+  Serial.println(myLEDStatus);
+
+  if(currentMillis - myLEDPrevMillis >= myLEDInterval){
+    myLEDStatus = !myLEDStatus;
+    myLEDPrevMillis = currentMillis;
+  }
 }
