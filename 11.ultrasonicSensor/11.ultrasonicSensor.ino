@@ -19,8 +19,32 @@
     https://github.com/TempeHS/TempeHS_Ardunio_Boilerplate/blob/main/Ardunio_Bootcamp/11.ultrasonicSensor/Bootcamp-ultrasonicSensor.png
 */
 
-void setup() {
 
+//load libraries
+#include <Servo.h>
+#include <Ultrasonic.h>
+
+//create serv object
+Servo myServo;
+
+//create ultrasonic to pin 2
+Ultrasonic myUS (2);
+
+//variable to store distance
+unsigned int distance;
+
+//Pin servo is attached
+unsigned static int myServoPin = 0;
+
+void setup() {
+Serial.begin(9600);
+Serial.println("config@9600");
+Serial.println("----------------");
+
+//configure myServo to the pin
+myServo.attach(myServoPin);
+myServo.write(0);
+delay(250);
 }
 
 void loop() {
